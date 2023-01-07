@@ -12,7 +12,7 @@ class Question(models.Model):
         return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
 
 class Choice(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name='question_choices') # ForeignKey is a relationship
+    question = models.ForeignKey(Question, on_delete=models.CASCADE) # ForeignKey is a relationship
     choice_text = models.CharField(max_length=200) 
     votes = models.IntegerField(default=0) # IntegerField is a field type
     
