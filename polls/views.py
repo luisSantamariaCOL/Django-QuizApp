@@ -4,8 +4,10 @@ from .models import Question
 
 # Create your views here.
 def index(request):
-
-    return render(request, 'polls/index.html')
+    latest_question_list = Question.objects.all()
+    return render(request, 'polls/index.html', {
+        "latest_question_list": latest_question_list,
+    })
 
 def detail(request, question_id):
     return render(request, 'polls/detail.html', {'question_id': question_id})
